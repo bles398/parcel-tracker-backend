@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TrackEx - Tracking</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>TrackEx Shipment Tracking</h1>
+    <p><strong>Tracking Number:</strong> <span id="trackingNumber"></span></p>
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Address:</strong> <span id="address"></span></p>
+    <p><strong>Item:</strong> <span id="item"></span></p>
+    <p><strong>Status:</strong> <span id="status">Shipped</span></p>
+    <div class="progress">
+      <div class="bar" id="progressBar"></div>
+    </div>
+    <p>Estimated Delivery: 2-4 Business Days</p>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('trackingNumber').textContent = params.get('track') || 'N/A';
+    document.getElementById('name').textContent = params.get('name') || 'N/A';
+    document.getElementById('address').textContent = params.get('address') || 'N/A';
+    document.getElementById('item').textContent = params.get('item') || 'N/A';
+    document.getElementById('progressBar').style.width = "70%";
+  </script>
+</body>
+</html>
